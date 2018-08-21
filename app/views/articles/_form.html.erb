@@ -1,0 +1,14 @@
+<%= form_with model: @article , local: true do |form| %>
+    <%= render 'shared/error_form_messaging', article: @article %>
+    <p>
+        <%= form.label :title, 'Title' %>
+        <%= form.text_field :title %>
+    </p>
+    <p>
+        <%= form.label :description, "Description" %>
+        <%= form.text_area :description %>      
+    </p>
+    <p>
+        <%= form.submit %> 
+    </p>      
+<% end %>

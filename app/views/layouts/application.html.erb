@@ -10,8 +10,8 @@
   </head>
 
   <body>
-    <%= link_to "Home", root_path %>
-    <%= link_to "About", about_path %>
+    <%= render 'shared/menu' %>
+    <%= render 'shared/flash_error_messaging' %>
     <%= yield %>
   </body>
 </html>
