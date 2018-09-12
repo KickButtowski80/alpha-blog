@@ -1,24 +1,20 @@
-<h1>All the Articles</h1>
-<p>
-    <%= link_to "Create new Article", new_article_path %>
-</p>
-<table>
- <thead>
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-    </tr>
- </thead>
- <tbody>
+<h1 class='text-center'>All the Articles</h1>
  <% @articles.each do |a| %>
-    <tr>
-       <td><%= a.title %></td> 
-       <td><%= a.description %></td>
-       <td><%= link_to 'show' ,  article_path(a) %></td>
-       <td><%= link_to 'edit' ,  edit_article_path(a) %></td>
-       <td><%= link_to 'delete', article_path(a), method: :delete, data: {confirm: "Are you sure?"} %></td>
-    </tr>
+ <div class="row">
+     <div class="col-xs-8 col-xs-offset-2">
+         <div class="well well-lg">
+             <div class="article-title"> 
+             <%= link_to a.title , article_path(a) %>
+             </div>
+             <div class="article-body">
+               <%= truncate(a.description, length: 100) %>
+             </div>      
+             <%= link_to "Delete", article_path(a), method: :delete, 
+             data: {confirm: "Are you sure you want to delete the article?"}, 
+             class: 'btn btn-xs btn-danger' %>
+             <%= link_to "Edit", edit_article_path(a), class: 'btn btn-xs btn-success'%>
+         </div>
+     </div>
+ </div>
 
 <%end%>
- </tbody>
-</table>
