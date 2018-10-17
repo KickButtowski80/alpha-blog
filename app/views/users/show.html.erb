@@ -8,4 +8,9 @@
     <%= @user.username %>'s articles
 </h4>
 
-<%= render 'shared/article' , obj: @user.articles %>
+
+<div align="center">
+    <%= will_paginate @user_articles %>
+    <%= render 'shared/article' , obj: @user_articles %>
+    <%= will_paginate @user_articles %>
+</div>
