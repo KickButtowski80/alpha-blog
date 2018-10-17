@@ -1,6 +1,8 @@
 <h1 align="center">All Alpha Bloggers</h1>
 <div align="center">
-    <% @users.each do |user| %>
-        <%= render 'shared/user-info', obj: user %>
-    <% end %>
+  <%= will_paginate %>
+  <% @users.each do |user| %>
+    <%= render 'shared/user-info', obj: user %>         
+  <% end %>
+  <%= will_paginate %>
 </div>
