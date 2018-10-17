@@ -1,2 +1,7 @@
-<h1 class='text-center'>All the Articles</h1>
-<%= render 'shared/article', obj: @articles %>
+<div align="center">
+    <h1>All the Articles</h1>
+    <%= will_paginate %>
+    <%= render 'shared/article', obj: @articles %>
+    <%= will_paginate %>
+</div>
+
