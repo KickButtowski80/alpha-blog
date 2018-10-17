@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ 
   get 'users/new'
   root 'pages#homepage'
   get 'about' => 'pages#about'
@@ -9,4 +10,8 @@ Rails.application.routes.draw do
   # post 'users', to: 'users#create'
   # or 
   resources :users, except: [:new]
+  
+  get 'login' , to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
