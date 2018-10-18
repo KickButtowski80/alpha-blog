@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+    
     before_action :set_article, only: [:show, :edit, :update, :destroy] 
     def index
         @articles = Article.paginate(:page => params[:page], :per_page => 5)
@@ -9,10 +10,10 @@ class ArticlesController < ApplicationController
     end
     
     def create     
-        # debugger
         # render plain: params[:article].inspect
         @article = Article.new(article_params)
-        @article.user = User.first
+        @article.user = User.find(session[:user_id] )
+        
      
         if @article.save!
             flash[:success] = "an Article was successfully created"
