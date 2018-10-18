@@ -16,5 +16,5 @@ end
     Article.create!(title: Faker::Artist.name, description: Faker::Lorem.paragraph, user_id: User.first.id)     
 end
 5.times do     
-    Article.create!(title: Faker::Food.dish , description: Faker::Food.description, user_id: User.first.id)     
+    Article.create!(title: Faker::Food.dish , description: Faker::Food.description, user_id: User.last.id)     
 end
