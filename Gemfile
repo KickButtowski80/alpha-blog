@@ -73,3 +73,6 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'bootstrap-will_paginate'
 
 gem 'pry-rails', :group => :development
+gem 'minitest-color', group: :test
+gem 'minitest', group: :test
+gem 'minitest-reporters', group: :test

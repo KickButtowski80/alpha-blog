@@ -12,6 +12,7 @@
     User.create!( username: Faker::FunnyName.name , email: Faker::Internet.email, password: "password")
 end
 
+User.first.update(admin: true)
 5.times do     
     Article.create!(title: Faker::Artist.name, description: Faker::Lorem.paragraph, user_id: User.first.id)     
 end
