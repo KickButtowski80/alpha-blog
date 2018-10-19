@@ -5,5 +5,13 @@ module ApplicationHelper
         size = options[:size]
         gravatar_url = "https://www.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
         image_tag gravatar_url, alt: user.username, class: "img-circle"
-    end   
+    end  
+    
+    def admin? user
+       if user.admin?
+          content_tag(:span, "Admin" , class: 'btn btn-danger')
+       else
+           content_tag(:span, "User" , class: 'btn btn-primary')
+      end
+    end
 end

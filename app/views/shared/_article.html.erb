@@ -15,7 +15,7 @@
                  </small>
                </div>
              </div>    
-             <% if logged_in? && current_user == a.user %>
+             <% if logged_in? && (current_user == a.user || current_user.admin?  )%>
                 <div class="article-actions">
                    <%= link_to "Delete", article_path(a), method: :delete, 
                    data: {confirm: "Are you sure you want to delete the article?"}, 
