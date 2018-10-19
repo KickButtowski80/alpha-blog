@@ -1,8 +1,6 @@
 class ArticlesController < ApplicationController  
-
-    
    before_action :set_article, only: [:show, :edit, :update, :destroy] 
-   before_action :require_user, excpet: [:index, :show]
+   before_action :require_user,  only: [:new, :create, :edit, :update, :destroy]
    before_action :require_same_user, only: [:edit, :update, :destroy]
                 
     def index
@@ -30,8 +28,7 @@ class ArticlesController < ApplicationController
    def show      
    end
     
-  def edit
-     
+  def edit     
   end
   
   def update
