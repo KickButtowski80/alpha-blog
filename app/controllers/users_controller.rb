@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      debugger
           session[:user_id] = @user.id
           flash[:success] = "Welcome to alpha blog #{@user.username}"
           redirect_to user_path(@user)
