@@ -9,13 +9,17 @@
 
 
 6.times do 
-    User.create!( username: Faker::FunnyName.name , email: Faker::Internet.email, password: "password")
+    User.create!( username: Faker::FunnyName.unique.name , email: Faker::Internet.email, password: "password")
 end
 
 User.first.update(admin: true)
 5.times do     
-    Article.create!(title: Faker::Artist.name, description: Faker::Lorem.paragraph, user_id: User.first.id)     
+    Article.create!(title: Faker::Artist.unique.name, description: Faker::Lorem.paragraph, user_id: User.first.id)     
 end
 5.times do     
-    Article.create!(title: Faker::Food.dish , description: Faker::Food.description, user_id: User.last.id)     
+    Article.create!(title: Faker::Food.unique.dish , description: Faker::Food.description, user_id: User.last.id)     
+end
+
+10.times do
+    Category.create! name: Faker::Color.unique.color_name
 end

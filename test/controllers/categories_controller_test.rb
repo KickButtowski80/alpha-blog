@@ -22,4 +22,5 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
         assert_response :success
     end
     
+ 
 end
