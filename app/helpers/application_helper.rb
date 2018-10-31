@@ -9,7 +9,7 @@ module ApplicationHelper
     
     def admin? user
        if user.admin?
-          content_tag(:span, "Admin" , class: 'btn btn-danger')
+           content_tag(:span, "Admin" , class: 'btn btn-danger')
        else
            content_tag(:span, "User" , class: 'btn btn-primary')
       end

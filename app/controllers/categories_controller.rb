@@ -16,9 +16,7 @@ class CategoriesController < ApplicationController
         redirect_to categories_path
     else
         render 'new'
-    end
-    
-    
+    end   
   end
 
   def show
