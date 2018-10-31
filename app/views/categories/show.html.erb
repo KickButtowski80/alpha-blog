@@ -1,1 +1,15 @@
 <h1><%= @category.name %></h1>
+ 
+    <% @category.articles.each do |c| %>
+     
+         <div class="well">
+             <%= c.title %>
+             <br />
+             <%= c.description %>
+         </div>
+             
+         
+    <% end %>
+ 
+
+   

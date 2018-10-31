@@ -23,3 +23,13 @@ end
 10.times do
     Category.create! name: Faker::Color.unique.color_name
 end
+
+ Article.all.each do | art| 
+      ArticleCategory.create( article_id: art.id, category_id: 3)
+end
+
+ Article.all.each do | art| 
+      ArticleCategory.create( article_id: art.id, category_id: 1)
+end
+    
+ 
