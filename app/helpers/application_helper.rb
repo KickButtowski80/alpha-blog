@@ -13,5 +13,8 @@ module ApplicationHelper
        else
            content_tag(:span, "User" , class: 'btn btn-primary')
       end
-    end
+    end 
+    
+
+    
 end
