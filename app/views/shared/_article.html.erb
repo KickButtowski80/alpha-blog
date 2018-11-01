@@ -14,7 +14,10 @@
                      last updated: <%= time_ago_in_words a.updated_at %> ago
                  </small>
                </div>
-             </div>    
+             </div>   
+             <% if a.categories.any? %>
+               <p>Categories: <%= render a.categories %>  </p>
+             <%end%>
              <% if logged_in? && (current_user == a.user || current_user.admin?  )%>
                 <div class="article-actions">
                    <%= link_to "Delete", article_path(a), method: :delete, 

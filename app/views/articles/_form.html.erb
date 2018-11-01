@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-xs-12">
         <%= render 'shared/error_form_messaging', obj: @article %>
@@ -17,7 +18,22 @@
             <div class="col-sm-8">
                  <%= form.text_area :description,rows:10,  class: 'form-control', placeholder: "description goes here"%>
             </div>
-        </div>   
+        </div>  
+        <div class="form-group">
+            <div class="row">
+                <div class="control-label col-sm-2">
+                
+                     <%= form.label @article.categories, 'Categories' %>
+                    
+                </div>
+                <div class="col-sm-8">
+                
+                    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+                        <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <%= form.submit class: ' btn btn-primary' %> 
