@@ -11,8 +11,11 @@
                       </li>
                       <li>
                         <small>
-                          <%= pluralize(@categories.count, "article") %>
+                          <%= pluralize(category.articles.count, "article") %>
                         </small>
+                      </li>
+                      <li>
+                        <%= link_to 'edit', edit_category_path(category), class: 'btn btn-primary' %>
                       </li>
                   </div>
               </div>
