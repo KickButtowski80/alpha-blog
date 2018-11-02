@@ -11,8 +11,7 @@
     <hr />
     <%= simple_format(@article.description) %>
     <% if @article.categories.any? %>
-        <p>Categories: <%= render @article.categories %></p>
-      
+        <p>Categories: <%= render @article.categories %></p>      
      <% end %>
         <div class="article-actions">  
             <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
@@ -25,3 +24,16 @@
         </div> 
 
 </div> 
+
+<div class="  col-xs-8 col-xs-offset-2">
+   <% @comments.each do |c| %>
+       <div>
+          <span> 
+              <%= c.content %>  by
+              <%= User.find(c.commentable.user_id).username %>
+              <%#= c.commenter_name c.commentable.user_id %>
+          </span>     
+       </div>
+   
+   <% end %>
+</div>

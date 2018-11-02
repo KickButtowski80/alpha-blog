@@ -26,7 +26,9 @@ class ArticlesController < ApplicationController
     end
     
    def show     
-       
+         @commentable = Article.find(params[:id])
+         @comments = @commentable.comments
+        #  @comments = Comment.commenter_name(current_user)
    end
     
   def edit     
