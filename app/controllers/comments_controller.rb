@@ -2,8 +2,7 @@ class CommentsController < ApplicationController
   before_action :load_commentable
   
   def index
-       @commentable = Article.find(params[:article_id])
-       @comments = @commentable.comments
+     @comments = current_user.comments
   end
 
   def new
@@ -12,6 +11,8 @@ class CommentsController < ApplicationController
   
   def create
     @comment = @commentable.comments.new( comment_params)  
+    @comment.user_id = current_user.id
+    
     if @comment.save
       redirect_to [@commentable, :comments], notice: 'Comment created'
     else

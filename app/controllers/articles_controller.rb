@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
    def show     
          @commentable = Article.find(params[:id])
          @comments = @commentable.comments
-        #  @comments = Comment.commenter_name(current_user)
+         @commenter_name = Comment.commenter_name(@commentable.user_id)
    end
     
   def edit     
@@ -67,5 +67,10 @@ class ArticlesController < ApplicationController
                 redirect_to root_path
             end
         end
+        
+      def load_commentable
+        resource, id = request.path.split('/')[1,2]
+        @commentable = resource.singularize.classify.constantize.find(id)
+      end
  
 end
