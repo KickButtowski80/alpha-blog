@@ -2,16 +2,24 @@ class CommentsController < ApplicationController
   before_action :load_commentable
   before_action :checked_logged_in, only: [ :create]
 
+  
   def create
     @comment = @commentable.comments.new(comment_params) 
     @comment.user_id = current_user.id
     @comment.commenter = current_user.username
+    
+     
     if @comment.blank? || @comment.save
-      redirect_to @commentable , notice: 'Comment created'
-    else      
-      # redirect_to @commentable, notice: "#{render_to_string( partial: "shared/error_form_messaging" ,  :locals => {obj: @comment})}"
-        redirect_to @commentable, notice: "either you enter less/more char or you did not put any"                                
-
+      flash[:success] = "Commented was created"
+      redirect_to @commentable
+    else       
+       flash[:success] = " #{render_to_string :partial => 'shared/error_form_messaging',:locals => {obj: @comment}}"
+       redirect_to @commentable
+      
+       
+        # flash[:danger] = "either you enter less/more char or you did not put any" 
+        # redirect_to @commentable 
+     
     end
   end
 private
@@ -26,7 +34,7 @@ private
   
   def checked_logged_in
     unless logged_in?
-      flash[:notice] = 'please log in to be able to comment'
+      flash[:danger] = 'please log in to be able to comment'
       redirect_to login_path
     end
   end
