@@ -25,18 +25,19 @@
 
 </div> 
 
-<div class="col-xs-8 col-xs-offset-2">
-   <% @comments.each do |c| %>
-       <div>
-          <span> 
-              <%= c.content %>  by 
-           <%= commenter_name c.user_id %>
-          </span>     
-       </div>
-   
-   <% end %>
-</div>
+
 
 <div class="col-xs-8 col-xs-offset-2">
-    <%=render 'comments/form' %>
+    <%= render partial: 'comments/form', :locals => {commentable:   @article} %>
+</div>
+
+<div class="col-xs-8 col-xs-offset-2"> 
+    <% @article.comments.each do |c| %>
+      <% if c %>
+        <div class="well">           
+                <%= c.content %>   by 
+                <%= c.commenter %>
+       <% end %>        
+        </div>        
+    <%end%>
 </div>

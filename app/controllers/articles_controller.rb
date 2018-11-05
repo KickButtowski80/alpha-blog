@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController  
    before_action :set_article, only: [:show, :edit, :update, :destroy] 
-   before_action :require_user,  only: [:new, :create, :edit, :update, :destroy]
-   before_action :require_same_user, only: [:edit, :update, :destroy]
+   before_action :require_user,  only: [:new, :create, :destroy]
+   before_action :require_same_user, only: [ :destroy]
                 
     def index
         @articles = Article.paginate(:page => params[:page], :per_page => 5)
@@ -25,11 +25,11 @@ class ArticlesController < ApplicationController
         end
     end
     
-   def show     
-         @commentable = Article.find(params[:id])
-         @comments = @commentable.comments
-         @commenter_name = Comment.commenter_name(@commentable.user_id)
-   end
+  def show     
+        #  @commentable = Article.find(params[:id])
+        #  @comments = @commentable.comments
+        #  @commenter_name = Comment.commenter_name(@commentable.user_id)
+  end
     
   def edit     
   end
@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
     
     private 
         def article_params
-            params.require(:article).permit(:title, :description, :user_id, category_ids: [] )
+            params.require(:article).permit(:title, :description, :user_id, category_ids: [])
         end
  
         def set_article
