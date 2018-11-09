@@ -13,13 +13,10 @@ class CommentsController < ApplicationController
       flash[:success] = "Commented was created"
       redirect_to @commentable
     else       
-       flash[:success] = " #{render_to_string :partial => 'shared/error_form_messaging',:locals => {obj: @comment}}"
-       redirect_to @commentable
-      
-       
-        # flash[:danger] = "either you enter less/more char or you did not put any" 
-        # redirect_to @commentable 
-     
+       flash[:danger]  = render_to_string(:partial => 'shared/error_form_messaging',
+                                          :locals => {obj: @comment}, 
+                                          format: :html)
+       redirect_to @commentable   
     end
   end
 private
@@ -38,4 +35,5 @@ private
       redirect_to login_path
     end
   end
+  
 end

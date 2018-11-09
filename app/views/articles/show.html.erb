@@ -22,22 +22,17 @@
             <%end%> 
             <%= link_to "View All Articles", articles_path  , class: 'btn btn-xs btn-primary'%> 
         </div> 
-
 </div> 
-
-
-
 <div class="col-xs-8 col-xs-offset-2">
     <%= render partial: 'comments/form', :locals => {commentable:   @article} %>
 </div>
-
 <div class="col-xs-8 col-xs-offset-2"> 
     <% @article.comments.each do |c| %>
-      <% if c %>
+     
         <div class="well">           
                 <%= c.content %>   by 
                 <%= c.commenter %>
-       <% end %>        
+           
         </div>        
     <%end%>
 </div>
