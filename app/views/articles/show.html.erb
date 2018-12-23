@@ -23,10 +23,11 @@
             <%= link_to "View All Articles", articles_path  , class: 'btn btn-xs btn-primary'%> 
         </div> 
 </div> 
-<div class="col-xs-8 col-xs-offset-2">
-    <%= render partial: 'comments/form', :locals => {commentable:   @article} %>
-   
-</div>
+<% if logged_in? %>
+    <div class="col-xs-8 col-xs-offset-2">
+        <%= render partial: 'comments/form', :locals => {commentable:   @article} %>   
+    </div>
+<%end%> 
 
 <div class="col-xs-8 col-xs-offset-2 comment-here"> 
    

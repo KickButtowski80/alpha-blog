@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   before_action :load_commentable
   before_action :checked_logged_in, only: [ :create]
-
   
   def create
     @comment = @commentable.comments.new(comment_params) 
