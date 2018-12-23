@@ -25,14 +25,19 @@
 </div> 
 <div class="col-xs-8 col-xs-offset-2">
     <%= render partial: 'comments/form', :locals => {commentable:   @article} %>
+   
+</div>
+
+<div class="col-xs-8 col-xs-offset-2 comment-here"> 
+   
 </div>
 <div class="col-xs-8 col-xs-offset-2"> 
-    <% @article.comments.each do |c| %>
-     
+     <div id="comments"></div>
+    <% @article.comments.each do |c| %>     
         <div class="well">           
                 <%= c.content %>   by 
-                <%= c.commenter %>
-           
-        </div>        
+                <%= c.commenter %>           
+        </div>
     <%end%>
+    <div id="comments"></div>
 </div>

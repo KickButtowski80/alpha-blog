@@ -11,6 +11,9 @@ class CommentsController < ApplicationController
      
     if @comment.blank? || @comment.save
       flash[:success] = "Commented was created"
+       ActionCable.server.broadcast 'comment_channel',
+        commenter: current_user.username,
+        comment: @comment.content
       redirect_to @commentable
     else       
        flash[:danger]  = render_to_string(:partial => 'shared/error_form_messaging',

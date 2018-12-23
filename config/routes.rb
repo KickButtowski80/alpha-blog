@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :comments
   end
   
+  mount ActionCable.server => '/cable'
+  
   get 'signup' , to: 'users#new'
   # post 'users', to: 'users#create'
   # or 

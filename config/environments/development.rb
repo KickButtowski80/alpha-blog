@@ -60,4 +60,7 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+  
+  config.action_cable.allowed_request_origins = ['https://complete-ruby-on-rails-course-kickbuttowski59.c9users.io/']
+  # config.reload_classes_only_on_change = false
 end
