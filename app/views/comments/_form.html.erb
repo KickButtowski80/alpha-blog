@@ -1,5 +1,5 @@
-<% comments = commentable.comments.build %>
-<%= form_with model:[commentable, comments], :html => {class: "form-horizontal", role:"form"} , local: true do |form| %>
+<%# comments = commentable.comments.new %>
+<%= form_with  model:[commentable,  Comment.new(commentable: commentable)], :html => {class: "form-horizontal", role:"form"} , local: true do |form| %>
 
 <div class="form-group">
     <div class="control-label col-sm-2">

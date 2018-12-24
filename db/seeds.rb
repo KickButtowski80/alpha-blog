@@ -8,7 +8,7 @@
 
 
 
-6.times do 
+9.times do 
     User.create!( username: Faker::FunnyName.unique.name , email: Faker::Internet.email, password: "password")
 end
 

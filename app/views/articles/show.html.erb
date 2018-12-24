@@ -29,16 +29,14 @@
     </div>
 <%end%> 
 
-<div class="col-xs-8 col-xs-offset-2 comment-here"> 
-   
-</div>
 <div class="col-xs-8 col-xs-offset-2"> 
      <div id="comments"></div>
-    <% @article.comments.each do |c| %>     
-        <div class="well">           
-                <%= c.content %>   by 
-                <%= c.commenter %>           
-        </div>
-    <%end%>
-    <div id="comments"></div>
+        <% @article.comments.each do |c| %>     
+            <div class="well">           
+                    <%= c.content %>   by 
+                    <%= c.commenter %>           
+            </div>
+        <%end%>
+        
+     <div id="comments"></div>
 </div>

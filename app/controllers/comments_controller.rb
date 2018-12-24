@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
   before_action :load_commentable
   before_action :checked_logged_in, only: [ :create]
   
+  def new
+    @comment = @commentabl.comments.new
+  end
+  
   def create
     @comment = @commentable.comments.new(comment_params) 
     @comment.user_id = current_user.id
